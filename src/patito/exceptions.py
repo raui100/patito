@@ -1,6 +1,6 @@
 """Module containing all custom exceptions raised by patito."""
 
-import pydantic
+import pydantic.v1 as pydantic
 
 
 class ValidationError(pydantic.ValidationError):

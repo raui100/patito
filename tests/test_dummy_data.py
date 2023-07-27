@@ -2,11 +2,10 @@
 from datetime import date, datetime
 from typing import Optional
 
+import patito as pt
 import polars as pl
 import pytest
 from typing_extensions import Literal
-
-import patito as pt
 
 
 def test_model_example_df():
@@ -53,6 +52,10 @@ def test_examples():
         b: Optional[str]
         c: Optional[int]
 
+    print(MyModel.columns)
+    print(MyModel.nullable_columns)
+    print(MyModel.required_columns)
+    print(MyModel.valid_dtypes)
     df = MyModel.examples({"a": [1, 2]})
     assert isinstance(df, pl.DataFrame)
     assert df.dtypes == [pl.Int64, pl.Utf8, pl.Int64]
